@@ -11,7 +11,7 @@ def index():
 
 @socketio.on('connect')
 def connect():
-    print('NEW')
+    print('New connection')
 
 @socketio.on('message')
 def message(message):
