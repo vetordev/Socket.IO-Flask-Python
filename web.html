@@ -6,11 +6,23 @@
 
     
     var socket = io('http://127.0.0.1:5000/');
-    alert('Funcionando')
-    socket.on('connect', function() {
-        socket.emit('message', {message: 'Conectadoooooo'});
+    
+    socket.on('connect', function(warn) {
+        socket.emit('mesg', {message: 'Conectado'}, {message2: 'work'});
         console.log('Conectado')
-    }); 
+        //console.log(warn)
+    });
+    socket.on('message', function(warn){
+        console.log('message')
+        console.log(warn)
+    })
+    socket.emit('my message', {mymessage: 'message'})
+    socket.on('reply', (data) => {
+        console.log(data)
+    })
+    socket.on('receive', (data) => {
+        console.log(data)
+    })
     
     
 </script>
